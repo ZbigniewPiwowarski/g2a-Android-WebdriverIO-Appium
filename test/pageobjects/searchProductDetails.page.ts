@@ -1,6 +1,6 @@
 import { $ } from "@wdio/globals";
 import CommonPage from "./common.page.js";
 
-class SecurePage extends CommonPage {}
+class SearchProductDetails extends CommonPage {}
 
-export default new SecurePage();
+export default new SearchProductDetails();
