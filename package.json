@@ -1,5 +1,5 @@
 {
-  "name": "my-new-project",
+  "name": "g2a-test-automation",
   "type": "module",
   "devDependencies": {
     "@wdio/appium-service": "^8.18.0",
@@ -12,6 +12,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "wdio": "wdio run wdio.conf.ts"
+    "wdio": "wdio run wdio.conf.local.ts",
+    "wdio:docker": "wdio run wdio.conf.docker.ts"
   }
 }

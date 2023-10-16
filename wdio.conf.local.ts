@@ -1,4 +1,8 @@
 import type { Options } from "@wdio/types";
+//const path = require("path");
+import * as path from "path";
+import commonPage from "./test/pageobjects/common.page.ts";
+const CommonPage = new commonPage();
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -69,6 +73,7 @@ export const config: Options.Testrunner = {
       "appium:automationName": "UiAutomator2",
       "appium:appPackage": "com.g2a.marketplace",
       "appium:appActivity": "com.g2a.marketplace.main.MainActivity",
+      //"appium:app": path.join(process.cwd(), "app/com.g2a.marketplace.apk"),
     },
   ],
 
@@ -148,7 +153,7 @@ export const config: Options.Testrunner = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: "bdd",
-    timeout: 60000,
+    timeout: 240000,
   },
 
   //
@@ -203,8 +208,9 @@ export const config: Options.Testrunner = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: async function (capabilities, specs) {
+    await CommonPage.switchCurrencyToEuro();
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name
@@ -221,8 +227,9 @@ export const config: Options.Testrunner = {
   /**
    * Function to be executed before a test (in Mocha/Jasmine) starts.
    */
-  // beforeTest: function (test, context) {
-  // },
+  beforeTest: async function (test, context) {
+    await CommonPage.restartApp();
+  },
   /**
    * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
    * beforeEach in Mocha)
@@ -245,8 +252,14 @@ export const config: Options.Testrunner = {
    * @param {boolean} result.passed    true if test has passed, otherwise false
    * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
    */
-  // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-  // },
+  afterTest: async function (test, context) {
+    if (await CommonPage.isWebviewPopUpXButtonDisplayed()) {
+      await CommonPage.clickWebviewPopUpXButton();
+      throw new Error(
+        "Lord of the fallen webview pop up spoiled the previous test"
+      );
+    }
+  },
 
   /**
    * Hook that gets executed after the suite has ended
