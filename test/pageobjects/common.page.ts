@@ -43,6 +43,14 @@ export default class CommonPage {
 
   // methods
 
+  public async clickSearchBar() {
+    await this.searchBar.click();
+  }
+
+  public async clickSearchBottomMenu() {
+    await this.searchBottomMenu.click();
+  }
+
   public isWebviewPopUpXButtonDisplayed() {
     return this.webviewPopUpXButton.isDisplayed();
   }
@@ -59,6 +67,21 @@ export default class CommonPage {
   public async scrollTextIntoView(text: String) {
     const elementSelector = `new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("${text}"))`;
     return $(`android=${elementSelector}`);
+  }
+
+
+  async performSwipeDown(count: number): Promise<void> {
+    for (let i = 0; i < count; i++) {
+      const { width, height } = await browser.getWindowSize();
+      const startPoint = { x: width / 2, y: height / 2 };
+      const endPoint = { x: width / 2, y: height * 0.2 };
+
+      await browser.touchAction([
+        { action: "longPress", ...startPoint },
+        { action: "moveTo", ...endPoint },
+        "release",
+      ]);
+    }
   }
 
   public async chooseCurrency(currency: String) {
@@ -80,6 +103,10 @@ export default class CommonPage {
 
       await this.euroCurrency.click();
     }
+  }
+
+  public async sendKeys(text: string[]) {
+    await driver.sendKeys(text);
   }
 
   // assertions

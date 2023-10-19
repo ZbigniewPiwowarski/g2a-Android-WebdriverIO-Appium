@@ -209,7 +209,7 @@ export const config: Options.Testrunner = {
    * @param {object}         browser      instance of created browser/device session
    */
   before: async function (capabilities, specs) {
-    await CommonPage.switchCurrencyToEuro();
+    //await CommonPage.switchCurrencyToEuro();
   },
   /**
    * Runs before a WebdriverIO command gets executed.
