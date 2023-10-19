@@ -8,7 +8,8 @@
 - these test are end to end tests
 - tests set up was tested on MacBook with intel chip and on windows 11, most probably it should work on MacBook
   with M1, M2 and Linux
-- before every test app is restarted to have starting point the same for each test
+- before every test app is restarted to have starting point the same for each test, every test is independent
+  from each other
 
 # app version
 

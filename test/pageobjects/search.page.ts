@@ -79,6 +79,10 @@ class SearchPage extends CommonPage {
     return $("id:fragmentFiltersFiltersButton");
   }
 
+  public get gamesSection() {
+    return $("//android.widget.TextView[@text='Games']");
+  }
+
   public async noSearchResultCostMoreThan(cost: number) {
     await this.searchResultPrice.waitForDisplayed({ timeout: 5000 });
     await this.searchResultsPrices.forEach(async (price) => {
@@ -108,22 +112,35 @@ class SearchPage extends CommonPage {
     expect(await this.searchResultAnyTitle.isDisplayed()).toBe(true);
   }
 
-  public async clickFIlterButton() {
+  public async tapFilterButton() {
     await this.filtersButton.click();
   }
 
-  public async clickEuropeFilter() {
+  public async tapEuropeFilter() {
     // adjust this number to your need
     await super.performSwipeDown(7);
     await this.filtersOptionEurope.click();
   }
 
-  public async clickClearAllFilters() {
+  public async tapClearAllFilters() {
     await this.clearAllFilters.click();
   }
 
-  public async clickApplyFilters() {
+  public async tapApplyFilters() {
     await this.filtersApplyButton.click();
+  }
+
+  public async tapGamesSection() {
+    await this.gamesSection.click();
+  }
+
+  public async tapSearchResultAnyTitle() {
+    await this.searchResultAnyTitle.click();
+  }
+
+  public async goToProductDetailsOfAnyGame() {
+    await this.tapSearchResultAnyTitle();
+    await this.tapGamesSection();
   }
 
   public async verifyNoResultsFound() {

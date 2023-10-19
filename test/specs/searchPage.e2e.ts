@@ -6,8 +6,8 @@ const CommonPage = new commonPage();
 
 describe("Search page tests", () => {
   it("should inspect search bar with no existing phrase", async () => {
-    await CommonPage.clickSearchBottomMenu();
-    await CommonPage.clickSearchBar();
+    await CommonPage.tapSearchBottomMenu();
+    await CommonPage.tapSearchBar();
     await SearchPage.verifySearchBarActive();
 
     await SearchPage.sendKeys(["ssssssssssssssssss"]);
@@ -15,8 +15,8 @@ describe("Search page tests", () => {
   });
 
   it("should inspect search bar with existing phrase", async () => {
-    await CommonPage.clickSearchBottomMenu();
-    await CommonPage.clickSearchBar();
+    await CommonPage.tapSearchBottomMenu();
+    await CommonPage.tapSearchBar();
     await SearchPage.verifySearchBarActive();
 
     await SearchPage.sendKeys(["game"]);
@@ -24,28 +24,28 @@ describe("Search page tests", () => {
   });
 
   it("should inspect EUROPE filter", async () => {
-    await CommonPage.clickSearchBottomMenu();
-    await CommonPage.clickSearchBar();
+    await CommonPage.tapSearchBottomMenu();
+    await CommonPage.tapSearchBar();
     await SearchPage.verifySearchBarActive();
 
-    await SearchPage.clickFIlterButton();
-    await SearchPage.clickEuropeFilter();
-    await SearchPage.clickApplyFilters();
+    await SearchPage.tapFilterButton();
+    await SearchPage.tapEuropeFilter();
+    await SearchPage.tapApplyFilters();
     await SearchPage.everySearchResultContainsWord("EUROPE");
   });
 
   it("should inspect filter CLEAR option", async () => {
-    await CommonPage.clickSearchBottomMenu();
-    await CommonPage.clickSearchBar();
+    await CommonPage.tapSearchBottomMenu();
+    await CommonPage.tapSearchBar();
     await SearchPage.verifySearchBarActive();
 
-    await SearchPage.clickFIlterButton();
-    await SearchPage.clickEuropeFilter();
-    await SearchPage.clickApplyFilters();
+    await SearchPage.tapFilterButton();
+    await SearchPage.tapEuropeFilter();
+    await SearchPage.tapApplyFilters();
 
-    await SearchPage.clickFIlterButton();
-    await SearchPage.clickClearAllFilters();
-    await SearchPage.clickApplyFilters();
+    await SearchPage.tapFilterButton();
+    await SearchPage.tapClearAllFilters();
+    await SearchPage.tapApplyFilters();
 
     await SearchPage.filtersButtonIsDisplayed();
   });

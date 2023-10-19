@@ -43,11 +43,11 @@ export default class CommonPage {
 
   // methods
 
-  public async clickSearchBar() {
+  public async tapSearchBar() {
     await this.searchBar.click();
   }
 
-  public async clickSearchBottomMenu() {
+  public async tapSearchBottomMenu() {
     await this.searchBottomMenu.click();
   }
 
@@ -55,7 +55,7 @@ export default class CommonPage {
     return this.webviewPopUpXButton.isDisplayed();
   }
 
-  public clickWebviewPopUpXButton() {
+  public tapWebviewPopUpXButton() {
     return this.webviewPopUpXButton.click();
   }
 
@@ -68,7 +68,6 @@ export default class CommonPage {
     const elementSelector = `new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("${text}"))`;
     return $(`android=${elementSelector}`);
   }
-
 
   async performSwipeDown(count: number): Promise<void> {
     for (let i = 0; i < count; i++) {
@@ -114,5 +113,9 @@ export default class CommonPage {
     expect(await this.searchBottomMenu.getAttribute("selected")).toEqual(
       "true"
     );
+  }
+
+  public async checkIfCartIconIsSelected() {
+    expect(await this.cartBottomMenu.getAttribute("selected")).toEqual("true");
   }
 }

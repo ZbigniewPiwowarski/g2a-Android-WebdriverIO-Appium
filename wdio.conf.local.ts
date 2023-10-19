@@ -254,9 +254,9 @@ export const config: Options.Testrunner = {
    */
   afterTest: async function (test, context) {
     if (await CommonPage.isWebviewPopUpXButtonDisplayed()) {
-      await CommonPage.clickWebviewPopUpXButton();
+      await CommonPage.tapWebviewPopUpXButton();
       throw new Error(
-        "Lord of the fallen webview pop up spoiled the previous test"
+        "Webview pop up with commercial spoiled the previous test"
       );
     }
   },
