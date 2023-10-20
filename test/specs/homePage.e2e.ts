@@ -1,8 +1,5 @@
-import { expect } from "@wdio/globals";
-import commonPage from "../pageobjects/common.page.ts";
 import HomePage from "../pageobjects/home.page.ts";
 import SearchPage from "../pageobjects/search.page.ts";
-const CommonPage = new commonPage();
 
 describe("Home page tests", () => {
   it("should inspect if search bar redirects to search view", async () => {

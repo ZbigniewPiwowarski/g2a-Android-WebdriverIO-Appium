@@ -51,6 +51,14 @@ export default class CommonPage {
     await this.searchBottomMenu.click();
   }
 
+  public async tapCartBottomMenu() {
+    await this.cartBottomMenu.click();
+  }
+
+  public async tapProfileBottomMenu() {
+    await this.profileBottomMenu.click();
+  }
+
   public isWebviewPopUpXButtonDisplayed() {
     return this.webviewPopUpXButton.isDisplayed();
   }
@@ -105,6 +113,11 @@ export default class CommonPage {
   }
 
   public async sendKeys(text: string[]) {
+    await driver.sendKeys(text);
+  }
+
+  public async waitAndSendKeys(text: string[]) {
+    await browser.pause(2000);
     await driver.sendKeys(text);
   }
 

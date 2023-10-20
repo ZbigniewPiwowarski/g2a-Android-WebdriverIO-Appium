@@ -23,6 +23,7 @@
   if there is this webview displayed before and after test, if this is displayed it will be closed.
   However one particular test on in the middle of which it was displayed most probably will fail.
 - before all tests there is method which switches currency to EUR, it works slow for some reason but it works so don't think that tests stuck
+- it looks like all tests in the profile screen work very slow, it looks that problem is app related in context of tests
 - for some tests there is scroll used, it is not 100% accurate so there is some chance that on some devices it will spoil test or two
 
 # known bugs in app
@@ -30,6 +31,8 @@
 kliknac na continue na ekranie cart i potem kliknac wstecz, infinity loading bar i nic sie nie da kiknac w aplikacji, trzeba ubic apke i wlaczyc jeszce raz
 
 price filter w filtrach, klikam przedzial od do i wyszukiwania pomimo tego sie nie pokrywaja z tym filtrem
+
+privacy policy i terms of conditions w profilu linki nie dzialaja
 
 # technologies used
 

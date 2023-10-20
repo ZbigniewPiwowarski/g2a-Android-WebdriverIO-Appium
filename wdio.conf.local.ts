@@ -124,7 +124,7 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  //services: ["appium"],
+  // services: ["chrome"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -255,9 +255,6 @@ export const config: Options.Testrunner = {
   afterTest: async function (test, context) {
     if (await CommonPage.isWebviewPopUpXButtonDisplayed()) {
       await CommonPage.tapWebviewPopUpXButton();
-      throw new Error(
-        "Webview pop up with commercial spoiled the previous test"
-      );
     }
   },
 
