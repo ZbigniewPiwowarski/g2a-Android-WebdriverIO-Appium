@@ -1,6 +1,7 @@
 import { browser } from "@wdio/globals";
 import CommonPage from "./common.page.ts";
 import * as assert from "assert";
+import { expect } from "chai";
 
 class SearchPage extends CommonPage {
   public get searchResultTitle() {
@@ -109,7 +110,7 @@ class SearchPage extends CommonPage {
 
   public async searchResultIsBiggerThan0() {
     await this.searchResultAnyTitle.waitForDisplayed({ timeout: 5000 });
-    expect(await this.searchResultAnyTitle.isDisplayed()).toBe(true);
+    expect(await this.searchResultAnyTitle.isDisplayed()).to.be.true;
   }
 
   public async tapFilterButton() {
@@ -144,16 +145,17 @@ class SearchPage extends CommonPage {
   }
 
   public async verifyNoResultsFound() {
-    expect(await this.noResultsFound.isDisplayed()).toBe(true);
+    expect(await this.noResultsFound.isDisplayed(), "There are results found")
+      .to.be.true;
   }
 
   public async verifySearchBarActive() {
     await this.searchBarActive.waitForDisplayed({ timeout: 5000 });
-    expect(await this.searchBarActive.isDisplayed()).toBe(true);
+    expect(await this.searchBarActive.isDisplayed()).to.be.true;
   }
 
   public async filtersButtonIsDisplayed() {
-    expect(await this.filtersButton.isDisplayed()).toBe(true);
+    expect(await this.filtersButton.isDisplayed()).to.be.true;
   }
 }
 

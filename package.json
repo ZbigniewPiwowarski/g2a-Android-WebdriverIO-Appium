@@ -2,12 +2,14 @@
   "name": "g2a-test-automation",
   "type": "module",
   "devDependencies": {
+    "@types/chai": "^4.3.9",
     "@wdio/appium-service": "^8.18.0",
     "@wdio/cli": "^8.18.0",
     "@wdio/local-runner": "^8.18.0",
     "@wdio/mocha-framework": "^8.18.0",
     "@wdio/spec-reporter": "^8.17.0",
     "appium-uiautomator2-driver": "^2.29.11",
+    "chai": "^4.3.10",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
