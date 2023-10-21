@@ -1,5 +1,4 @@
 import type { Options } from "@wdio/types";
-//const path = require("path");
 import * as path from "path";
 import commonPage from "./test/pageobjects/common.page.ts";
 const CommonPage = new commonPage();
@@ -73,7 +72,7 @@ export const config: Options.Testrunner = {
       "appium:automationName": "UiAutomator2",
       "appium:appPackage": "com.g2a.marketplace",
       "appium:appActivity": "com.g2a.marketplace.main.MainActivity",
-      //"appium:app": path.join(process.cwd(), "app/com.g2a.marketplace.apk"),
+      "appium:app": path.join(process.cwd(), "app/com.g2a.marketplace.apk"),
     },
   ],
 
@@ -209,7 +208,7 @@ export const config: Options.Testrunner = {
    * @param {object}         browser      instance of created browser/device session
    */
   before: async function (capabilities, specs) {
-    //await CommonPage.switchCurrencyToEuro();
+    await CommonPage.switchCurrencyToEuro();
   },
   /**
    * Runs before a WebdriverIO command gets executed.
@@ -252,11 +251,11 @@ export const config: Options.Testrunner = {
    * @param {boolean} result.passed    true if test has passed, otherwise false
    * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
    */
-  afterTest: async function (test, context) {
-    if (await CommonPage.isWebviewPopUpXButtonDisplayed()) {
-      await CommonPage.tapWebviewPopUpXButton();
-    }
-  },
+  // afterTest: async function (test, context) {
+  //   if (await CommonPage.isWebviewPopUpXButtonDisplayed()) {
+  //     await CommonPage.tapWebviewPopUpXButton();
+  //   }
+  // },
 
   /**
    * Hook that gets executed after the suite has ended
