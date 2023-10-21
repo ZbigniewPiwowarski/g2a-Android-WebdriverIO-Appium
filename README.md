@@ -6,8 +6,8 @@
   possibility that in some situations different phone will behave a little bit different
 - tests are written for anonymous user account
 - these test are end to end tests
-- tests set up was tested on MacBook with intel chip and on windows 11, most probably it should work on MacBook
-  with M1, M2 and Linux as well
+- tests set up was tested on MacBook with intel chip, most probably it should work on MacBook
+  with M1, M2 as well, probably windows and linux will need some adjustment in terms of docker installation commands
 - before every test app is restarted to have starting point the same for each test, every test is independent
   from each other
 - tests run in docker so there is no need for appium set up
@@ -24,7 +24,7 @@
 - device with android system
 - android device and local machine connected to the same wifi
 
-# installation
+# installation on MacBook
 
 run in repository root directory in terminal:
 
