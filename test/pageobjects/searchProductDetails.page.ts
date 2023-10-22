@@ -1,5 +1,6 @@
 import { $ } from "@wdio/globals";
 import CommonPage from "./common.page.js";
+const commonPage = new CommonPage();
 
 class SearchProductDetails extends CommonPage {
   public get activationInOptions() {
@@ -40,6 +41,7 @@ class SearchProductDetails extends CommonPage {
 
   public async tapAngolaOption() {
     await this.angolaOption.click();
+    await commonPage.tapWebviewPopUpXButton();
   }
 
   public async tapCartButton() {
