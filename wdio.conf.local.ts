@@ -216,6 +216,7 @@ export const config: Options.Testrunner = {
    * @param {Array} args arguments that command would receive
    */
   // beforeCommand: function (commandName, args) {
+  //   CommonPage.tapWebviewPopUpXButton();
   // },
   /**
    * Hook that gets executed before the suite starts

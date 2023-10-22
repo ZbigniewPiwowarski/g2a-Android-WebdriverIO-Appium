@@ -41,6 +41,14 @@ export default class CommonPage {
     return $("id:searchTextView");
   }
 
+  public get webviewCommercial() {
+    return $("//android.webkit.WebView");
+  }
+
+  public get webviewContainer() {
+    return $("id=container");
+  }
+
   // methods
 
   public async tapSearchBar() {
@@ -59,12 +67,14 @@ export default class CommonPage {
     await this.profileBottomMenu.click();
   }
 
-  public isWebviewPopUpXButtonDisplayed() {
-    return this.webviewPopUpXButton.isDisplayed();
-  }
-
-  public tapWebviewPopUpXButton() {
-    return this.webviewPopUpXButton.click();
+  public async tapWebviewPopUpXButton() {
+    // pause needed because webview can appear or not, it is random
+    await browser.pause(2000);
+    try {
+      await this.webviewPopUpXButton.click();
+    } catch (error) {
+      ("no webview pop up");
+    }
   }
 
   public async restartApp() {
@@ -114,6 +124,12 @@ export default class CommonPage {
 
   public async sendKeys(text: string[]) {
     await driver.sendKeys(text);
+  }
+
+  public async keys(text: string[]) {
+    try {
+      await driver.keys(text);
+    } catch (error) {}
   }
 
   public async waitAndSendKeys(text: string[]) {

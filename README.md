@@ -66,10 +66,10 @@ run tests with command:
 
 - failed to connect to 'IP:555': Connection refused
   connect phone with cable
-  run in terminal command: adb usb
+  run (on local machine) in terminal command: adb usb
   allow connection on your phone
-  run adb tcpip 5555
-  run connect IP:555
+  run in terminal:   adb tcpip 5555
+  run in terminal:  connect IP:555
 - ERROR [internal] load metadata for docker
   try command in terminal: rm ~/.docker/config.json
 
